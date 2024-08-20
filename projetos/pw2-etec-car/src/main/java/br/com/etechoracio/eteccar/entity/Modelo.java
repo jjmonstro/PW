@@ -20,4 +20,7 @@ public class Modelo {
     @Column(name = "NR_POTENCIA", columnDefinition = "numeric")
     private Double potencia;
 
+    @JoinColumn(name = "ID_MARCA")
+    @ManyToOne
+    private Marca marca;
 }

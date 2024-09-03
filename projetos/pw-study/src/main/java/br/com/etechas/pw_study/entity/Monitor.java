@@ -34,7 +34,7 @@ public class Monitor {
     private String conteudo;
 
     @JoinColumn(name = "ID_DISCIPLINA")
-    @OneToOne
+    @ManyToOne
     private Disciplina id_disciplina;
 
     @ManyToMany

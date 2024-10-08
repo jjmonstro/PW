@@ -3,10 +3,14 @@ package br.com.etechas.pw_study.controller;
 import br.com.etechas.pw_study.entity.Disciplina;
 import br.com.etechas.pw_study.repository.DisciplinaRepository;
 import br.com.etechas.pw_study.service.DisciplinaService;
+import org.apache.el.lang.ELSupport;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 //aqui ele ficaouvindo asrequisições http e ve se é pra ele
 @RestController
@@ -20,9 +24,36 @@ public class DisciplinaController {
         return service.listar();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Disciplina> buscarporId(@PathVariable Long id){
+        var existe = service.buscaPorId(id);
+// return service.buscaPorId(id).map(e-> ResponseEntity.ok(e)).orElse(ResponseEntity.notFound().build());
+// Jeito mais curto para executar essa operação
+        if(existe.isPresent()){
+            return ResponseEntity.ok(existe.get());
+        }
+        else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PostMapping
     public Disciplina cadastrar(@RequestBody Disciplina disciplina){
         return service.cadastrar(disciplina);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Disciplina> deletarPorId(@PathVariable Long id){
+        var existe = service.buscaPorId(id);
+        if (existe.isPresent()){
+            service.deletarPorId(id);
+            return ResponseEntity.ok().build();
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
 }

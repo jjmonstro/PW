@@ -7,8 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 //aqui é onde tem os comandos
-@Repository
 public interface DisciplinaRepository
         extends JpaRepository<Disciplina, Long> {
     List<Disciplina> findByNome(String nome);
+
+
 }

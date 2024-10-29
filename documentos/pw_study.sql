@@ -44,10 +44,14 @@ INSERT INTO TBL_DISCIPLINA VALUES('Programação Web');
 INSERT INTO TBL_DISCIPLINA VALUES('Banco de dados');
 INSERT INTO TBL_DISCIPLINA VALUES('Matemática');
 
-INSERT INTO TBL_MONITOR VALUES('Amanda Souza Gomes', 'https://images.generated.photos/-t6chrwY4d4Ro2AXJ8fY0jv6NsX7rbGyejtYzHRF704/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/NDM4Njk0LmpwZw.jpg', '11997894561', 'amanda-souza-gomes@armyspy.com', 'bla bla bla bla', 1);
-INSERT INTO TBL_MONITOR VALUES('Paulo Souza Gomes', 'https://images.generated.photos/i6niea3KzCXKtAe7I1HujD7aUMH_bn_8iE6t5Ovj5lM/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/NjE0MzU0LmpwZw.jpg','11997894511', 'paulo-souza-gomes@armyspy.com', 'bla bla bla bla', 2);
+INSERT INTO TBL_MONITOR(TX_NOME,TX_FOTO,TX_WHATSAPP,TX_EMAIL,TX_CONTEUDO,ID_DISCIPLINA) VALUES('Amanda Souza Gomes', 'https://images.generated.photos/-t6chrwY4d4Ro2AXJ8fY0jv6NsX7rbGyejtYzHRF704/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/NDM4Njk0LmpwZw.jpg', '11997894561', 'amanda-souza-gomes@armyspy.com', 'bla bla bla bla', 1);
+INSERT INTO TBL_MONITOR(TX_NOME,TX_FOTO,TX_WHATSAPP,TX_EMAIL,TX_CONTEUDO,ID_DISCIPLINA) VALUES('Paulo Souza Gomes', 'https://images.generated.photos/i6niea3KzCXKtAe7I1HujD7aUMH_bn_8iE6t5Ovj5lM/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/NjE0MzU0LmpwZw.jpg','11997894511', 'paulo-souza-gomes@armyspy.com', 'bla bla bla bla', 2);
 
-INSERT INTO TBL_CONEXAO VALUES('2024/09/10', 2, 1);
-INSERT INTO TBL_CONEXAO VALUES('2024/09/12', 2, 1);
-INSERT INTO TBL_CONEXAO VALUES('2024/09/14', 2, 1);
-INSERT INTO TBL_CONEXAO VALUES('2024/09/16', 1, 1);
+INSERT INTO TBL_CONEXAO(DT_CRIACAO,ID_MONITOR) VALUES('2024/09/10', 3);
+INSERT INTO TBL_CONEXAO(DT_CRIACAO,ID_MONITOR) VALUES('2024/09/12', 3);
+INSERT INTO TBL_CONEXAO(DT_CRIACAO,ID_MONITOR) VALUES('2024/09/14', 4);
+INSERT INTO TBL_CONEXAO(DT_CRIACAO,ID_MONITOR) VALUES('2024/09/16', 4);
+
+SELECT * FROM TBL_CONEXAO
+SELECT * FROM TBL_MONITOR
+SELECT * FROM TBL_DISCIPLINA

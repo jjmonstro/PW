@@ -24,7 +24,4 @@ public class ConexaoService {
         var conexao = repository.findByMonitor(monitor);
         return conexao;
     }
-
-
-
 }

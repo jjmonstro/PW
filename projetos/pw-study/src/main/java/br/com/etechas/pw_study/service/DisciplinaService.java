@@ -25,6 +25,10 @@ public class DisciplinaService {
         var disciplina = repository.findById(id);
         return disciplina;
     }
+    public List<Disciplina> buscaPorNome(String nome){
+        var disciplina = repository.findByNome(nome);
+        return disciplina;
+    }
     public Disciplina cadastrar(Disciplina disciplina)
     {
         var existe = repository.findByNome(disciplina.getNome());
@@ -32,6 +36,7 @@ public class DisciplinaService {
             throw new RuntimeException("Nome da disciplina já cadastrado");
         }
         return repository.save(disciplina);}
+
         public void deletarPorId(Long id){
         var busca = new Disciplina();
         busca.setId(id);
@@ -40,5 +45,10 @@ public class DisciplinaService {
                 throw new RuntimeException("Disciplina está sendo usada");
             }
         repository.deleteById(id);
+        }
+
+
+        public Disciplina editarDisciplina(Disciplina disciplina){
+            return repository.save(disciplina);
         }
     }

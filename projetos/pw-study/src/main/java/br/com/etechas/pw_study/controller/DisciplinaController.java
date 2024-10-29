@@ -55,5 +55,20 @@ public class DisciplinaController {
         }
     }
 
+    @PutMapping("{id}")
+    public ResponseEntity<Disciplina> Editar(@RequestBody Disciplina disciplina, @PathVariable Long id) {
+        var existe = service.buscaPorId(id);
+        if (existe.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
 
+        if(disciplina.getId() != id){
+            throw new RuntimeException("Id da url diferente do budy");
+        }
+
+        List findNome = service.buscaPorNome(disciplina.getNome());
+
+        var editado = service.editarDisciplina(disciplina);
+        return ResponseEntity.ok(editado);
+    }
 }

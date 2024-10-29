@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 //aquié onde tem os comandos
-@Repository
+
 public interface MonitorRepository
         extends JpaRepository<Monitor, Long> {
 

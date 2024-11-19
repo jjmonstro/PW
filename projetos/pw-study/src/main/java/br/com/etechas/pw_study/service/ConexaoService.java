@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,5 +24,12 @@ public class ConexaoService {
     public List<Conexao> buscaPorMonitor(Monitor monitor){
         var conexao = repository.findByMonitor(monitor);
         return conexao;
+    }
+
+    public Conexao cadastrar(Monitor monitor){
+        Conexao conexao = new Conexao();
+        conexao.setData(LocalDateTime.now());
+        conexao.setMonitor(monitor);
+        return repository.save(conexao);
     }
 }

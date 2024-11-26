@@ -3,6 +3,9 @@ package br.com.etechas.pw_study.controller;
 import br.com.etechas.pw_study.entity.Disciplina;
 import br.com.etechas.pw_study.repository.DisciplinaRepository;
 import br.com.etechas.pw_study.service.DisciplinaService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.apache.el.lang.ELSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,17 +16,20 @@ import java.util.List;
 import java.util.Optional;
 
 //aqui ele ficaouvindo asrequisições http e ve se é pra ele
+@Tag(description = "gerencia disciplina", name = "Disciplina")
 @RestController
 @RequestMapping("/disciplinas")
 public class DisciplinaController {
     @Autowired
     private DisciplinaService service;
 
+    @Operation(summary = "Lista de disciplinas")
     @GetMapping
     public List<Disciplina> listar(){
         return service.listar();
     }
 
+    @ApiResponse(responseCode = "200", description = "OK")
     @GetMapping("/{id}")
     public ResponseEntity<Disciplina> buscarporId(@PathVariable Long id){
         var existe = service.buscaPorId(id);

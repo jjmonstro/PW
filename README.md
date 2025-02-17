@@ -1,2 +1,2 @@
 # PW
-Repository for web programming classes
+Repository for my first year on web programming classes
